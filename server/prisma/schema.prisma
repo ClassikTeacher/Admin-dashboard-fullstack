@@ -28,6 +28,7 @@ model employee{
   department String @db.VarChar(30)
   position String @db.VarChar(50)
   date DateTime
+  department_head Boolean @default(false)
   department_worker department @relation(fields: [id_department], references: [id])
   id_department Int
 }
