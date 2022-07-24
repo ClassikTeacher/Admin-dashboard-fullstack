@@ -68,7 +68,7 @@ class AdminService{
 
     async refresh(refreshToken: string){
         if(!refreshToken){
-            throw new Error()
+            throw new Error("")
         }
         const tokenValid = tokenServise.validRefreshToken(refreshToken)
         const adminData = await tokenServise.findByToken(refreshToken)
