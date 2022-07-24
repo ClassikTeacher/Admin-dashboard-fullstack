@@ -32,3 +32,10 @@ model employee{
   department_worker department @relation(fields: [id_department], references: [id])
   id_department Int
 }
+
+model admins{
+  id Int @default(autoincrement()) @id
+  login String @db.VarChar(30) @unique
+  password String @db.VarChar(200)
+  refresh_token String @db.VarChar(500) @unique
+}

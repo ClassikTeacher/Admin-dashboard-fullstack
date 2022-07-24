@@ -1,5 +1,7 @@
+import { PrismaClient } from '@prisma/client'
 
 
+const prisma = new PrismaClient()
 class Validation{
     dateValidation(date: string){
         const arrDate = date.split('-')
@@ -9,6 +11,19 @@ class Validation{
             return true
         } 
         return false
+    }
+
+    async validationDepartmentHead(id: number){
+        const head = await prisma.employee.findFirst({
+            where: {
+                id_department: id,
+                department_head: true
+            }
+        })
+        if(head){
+            return false
+        }
+        return true
     }
 }
 

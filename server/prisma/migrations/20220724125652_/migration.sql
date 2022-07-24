@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "admins" ALTER COLUMN "password" SET DATA TYPE VARCHAR(200),
+ALTER COLUMN "refresh_token" SET DATA TYPE VARCHAR(500);
