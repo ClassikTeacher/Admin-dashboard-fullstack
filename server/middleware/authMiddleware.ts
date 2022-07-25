@@ -1,8 +1,9 @@
+import { NextFunction, Request, Response } from "express"
 
 const tokenServise = require('../services/TokenService')
 
 
-module.exports = function (req:any, res:any, next:Function){
+module.exports = function (req:Request, res:Response, next:NextFunction){
     try{
         const authorizationHeader = req.headers.authorization
         if(!authorizationHeader){
@@ -17,7 +18,7 @@ module.exports = function (req:any, res:any, next:Function){
         if(!userData){
             return next(new Error('user un authrized!')) 
         }
-        req.user = userData
+        // req.user = userData
         next()
     } catch{
         return next(new Error('user un authrized'))

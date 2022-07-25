@@ -1,9 +1,11 @@
+import { NextFunction, Request, Response } from "express"
+
 const moment = require('moment')
 const departmentService = require('../services/DepartmentService')
 const valid = require('../validator/Validator')
 
 class DepartmentController {
-    async getAllDepartments(req:any, res:any, next:Function){
+    async getAllDepartments(req:Request, res:Response, next:NextFunction){
         try{
             const body =req.body
             const headers = req.headers
@@ -14,7 +16,7 @@ class DepartmentController {
         }
     }
 
-    async getDepartment(req:any, res:any, next:Function){
+    async getDepartment(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
             const headers = req.headers
@@ -26,7 +28,7 @@ class DepartmentController {
         }
     }
 
-    async addDepartment(req:any, res:any, next:Function){
+    async addDepartment(req:Request, res:Response, next:NextFunction){
         try{
             const {name, date, amount_employee, department_head, description} =req.body
             const headers = req.headers
@@ -41,7 +43,7 @@ class DepartmentController {
         }
     }
 
-    async deleteDepartment(req:any, res:any, next:Function){
+    async deleteDepartment(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
             const headers = req.headers

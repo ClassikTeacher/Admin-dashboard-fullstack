@@ -2,12 +2,13 @@ const employeeService = require('../services/EmployeeService')
 const moment = require('moment')
 const valid = require('../validator/Validator')
 import { PrismaClient } from '@prisma/client'
+import { NextFunction, Request, Response } from 'express'
 
 
 const prisma = new PrismaClient()
 
 class EmployeeController {
-    async getAllEmployees(req:any, res:any, next:Function){
+    async getAllEmployees(req:Request, res:Response, next:NextFunction){
         try{
             const headers = req.headers
             const response = await employeeService.getAllEmployees()
@@ -17,7 +18,7 @@ class EmployeeController {
             next(e)
         }
     }
-    async getEmployee(req:any, res:any, next:Function){
+    async getEmployee(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
             const headers = req.headers
@@ -29,7 +30,7 @@ class EmployeeController {
         }
     }
 
-    async addEmployee(req:any, res:any, next:Function){
+    async addEmployee(req:Request, res:Response, next:NextFunction){
         try{
             const {first_name, last_name, date, company, position, department, department_head, id_department} = req.body
 
@@ -49,7 +50,7 @@ class EmployeeController {
         }
     }
 
-    async deleteEmployee(req:any, res:any, next:Function){
+    async deleteEmployee(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
             const headers = req.headers

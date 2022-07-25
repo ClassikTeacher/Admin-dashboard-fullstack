@@ -1,10 +1,11 @@
+import { NextFunction, Request, Response } from "express"
 
 const adminService = require('../services/AdminService')
 const {validationResult} = require('express-validator')
 
 
 class UserController {
-    async registration(req: any, res: any, next: Function){
+    async registration(req:Request, res:Response, next:NextFunction){
         try{
             const errors = validationResult(req)
             if(!errors.isEmpty()){
@@ -20,7 +21,7 @@ class UserController {
         }
     }
 
-    async login(req: any, res: any, next: Function){
+    async login(req:Request, res:Response, next:NextFunction){
         try{
             const {login, password} = req.body
             const userData = await adminService.login(login, password)
@@ -31,7 +32,7 @@ class UserController {
         }
     }
 
-    async logout(req: any, res: any, next: Function){
+    async logout(req:Request, res:Response, next:NextFunction){
         try{
         const {refreshToken} = req.cookies;
         const token = await adminService.logout(refreshToken)
@@ -42,7 +43,7 @@ class UserController {
         }
     }
 
-    async refresh(req: any, res: any, next: Function){
+    async refresh(req:Request, res:Response, next:NextFunction){
         try{
             const {refreshToken} = req.cookies
             const userData = await adminService.refresh(refreshToken)
@@ -54,7 +55,7 @@ class UserController {
     }
 
     
-    async getAdminPage(req: any, res: any, next: Function){
+    async getAdminPage(req:Request, res:Response, next:NextFunction){
         try{
             const users = "Admin page"
             return res.json(users)
