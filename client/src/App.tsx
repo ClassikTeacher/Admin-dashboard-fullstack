@@ -29,11 +29,17 @@ function App() {
       <div className='content-container'>
         <Navbar />
         <div className='dashboard'>
-          {departments.map(item=> 
-            <div key={item.id}>{item.name}</div>
-          )}
+          <div className='departmentModule'>
+            {departments.map(item=> 
+              <div key={item.id}>{item.name}</div>
+            )}
+          </div>
+          <div className='employeeModule'>
+          {employees.map(item=> 
+              <div key={item.id}>{item.first_name} {item.last_name}</div>
+            )}
+          </div>
         </div>
-         
       </div>
        
     </div>
