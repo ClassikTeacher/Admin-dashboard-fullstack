@@ -14,16 +14,25 @@ class Validation{
     }
 
     async validationDepartmentHead(id: number){
-        const head = await prisma.employee.findFirst({
+        const head = await prisma.department.findFirst({
+            
             where: {
-                id_department: id,
-                department_head: true
-            }
+                AND:[{
+                    id: id, 
+                    employee_list:{
+                        some: {
+                            department_head: true
+                        }
+                    }
+                }]
+            },  
+                       
+                
         })
-        if(head){
-            return false
-        }
-        return true
+        
+        
+        return head
+       
     }
 }
 

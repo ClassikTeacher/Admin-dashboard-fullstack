@@ -17,6 +17,9 @@ class DepartmentService {
         const department = await prisma.department.findFirst({
             where:{
                 id: id
+            },
+            include:{
+                employee_list: true
             }
         })
         if(department){
@@ -45,10 +48,20 @@ class DepartmentService {
     }
 
     async deleteDepartment(id: number){
+        const employee = await prisma.employee.deleteMany({
+            where:{
+                id_department: id
+            },
+            
+
+        })
+
         const department = await prisma.department.delete({
             where:{
                 id: id
-            }
+            },
+            
+
         })
         if(department){
             return department 

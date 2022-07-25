@@ -16,10 +16,11 @@ class DepartmentController {
 
     async getDepartment(req:any, res:any, next:Function){
         try{
-            const {id} =req.body
+            const {id} = req.params
             const headers = req.headers
-            const response = await departmentService.getDepartment(id)
+            const response = await departmentService.getDepartment(Number(id))
             res.json(response)
+          
         }catch(e){
             next(e)
         }
@@ -42,9 +43,9 @@ class DepartmentController {
 
     async deleteDepartment(req:any, res:any, next:Function){
         try{
-            const {id} =req.body
+            const {id} = req.params
             const headers = req.headers
-            const response = await departmentService.deleteDepartment(id)
+            const response = await departmentService.deleteDepartment(Number(id))
             res.json(response)
         }catch(e){
             next(e)

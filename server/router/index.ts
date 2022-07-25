@@ -8,13 +8,13 @@ const authMiddleware =require('../middleware/authMiddleware')
 const router = new Router()
 
 router.get('/alldepartments', departmentController.getAllDepartments)
-router.get('/department', departmentController.getDepartment)
+router.get('/department/:id', departmentController.getDepartment)
 router.post('/department', departmentController.addDepartment)
-router.delete('/department', departmentController.deleteDepartment)
+router.delete('/department/:id', departmentController.deleteDepartment)
 router.get('/allemployees', employeeController.getAllEmployees)
-router.get('/employee', employeeController.getEmployee)
+router.get('/employee/:id', employeeController.getEmployee)
 router.post('/employee', employeeController.addEmployee)
-router.delete('/employee', employeeController.deleteEmployee)
+router.delete('/employee/:id', employeeController.deleteEmployee)
 
 router.post('/registration',
         body('password').isLength({min:4, max:24}),
