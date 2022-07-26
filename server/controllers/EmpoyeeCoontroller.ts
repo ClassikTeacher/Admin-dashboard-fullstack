@@ -10,7 +10,6 @@ const prisma = new PrismaClient()
 class EmployeeController {
     async getAllEmployees(req:Request, res:Response, next:NextFunction){
         try{
-            const headers = req.headers
             const response = await employeeService.getAllEmployees()
             res.json(response)
         }catch(e){
@@ -21,7 +20,6 @@ class EmployeeController {
     async getEmployee(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
-            const headers = req.headers
             const response = await employeeService.getEmployee(Number(id))
             res.json(response)
         }catch(e){
@@ -34,7 +32,6 @@ class EmployeeController {
         try{
             const {first_name, last_name, date, company, position, department, department_head, id_department} = req.body
 
-            const headers = req.headers
             if(!valid.dateValidation(date)){
                 throw new Error('invalid date')
             }
@@ -53,11 +50,11 @@ class EmployeeController {
     async deleteEmployee(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
-            const headers = req.headers
             const response = await employeeService.deleteEmployee(Number(id))
             res.json(response)
         }catch(e){
             console.log(e)
+            next(e)
         }
     }
 }

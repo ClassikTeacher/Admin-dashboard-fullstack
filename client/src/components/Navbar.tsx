@@ -1,5 +1,6 @@
 import React from 'react'
-const avatar = require('../static/Person.jpeg')
+import ava from '../static/Person.jpeg'
+
 
 
 const Navbar = ()=>{
@@ -8,7 +9,7 @@ const Navbar = ()=>{
         <div className='navbar'>
             {/* <button type="button" className='btn-sidebar'>Burger</button> */}
             <input type="text" id="search" placeholder="search" className="search" />
-            <img src={avatar} alt="avatar" className='img-avatar'/>
+            <img src={ava} alt="avatar" className='img-avatar'/>
         </div>
     )
 }

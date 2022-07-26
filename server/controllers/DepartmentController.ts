@@ -7,8 +7,6 @@ const valid = require('../validator/Validator')
 class DepartmentController {
     async getAllDepartments(req:Request, res:Response, next:NextFunction){
         try{
-            const body =req.body
-            const headers = req.headers
             const response = await departmentService.getAllDepartments()
             res.json(response)
         }catch(e){
@@ -19,7 +17,6 @@ class DepartmentController {
     async getDepartment(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
-            const headers = req.headers
             const response = await departmentService.getDepartment(Number(id))
             res.json(response)
           
@@ -31,7 +28,6 @@ class DepartmentController {
     async addDepartment(req:Request, res:Response, next:NextFunction){
         try{
             const {name, date, amount_employee, department_head, description} =req.body
-            const headers = req.headers
             if(!valid.dateValidation(date)){
                 throw new Error('invalid date')
             }
@@ -46,7 +42,6 @@ class DepartmentController {
     async deleteDepartment(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
-            const headers = req.headers
             const response = await departmentService.deleteDepartment(Number(id))
             res.json(response)
         }catch(e){
