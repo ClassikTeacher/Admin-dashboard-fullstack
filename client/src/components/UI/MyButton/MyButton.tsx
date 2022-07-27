@@ -3,15 +3,15 @@ import styles from './MyButton.module.css'
 
 interface MyButtonProps{
     children: string
-    // click: ()=>void
+    click: ()=>void
 }
 
-const MyButton: FC<MyButtonProps> = ({children})=>{
+const MyButton: FC<MyButtonProps> = ({children, click})=>{
 
     
 
     return(
-       <button className={styles.myButton} type='button'>{children}</button>
+       <button onClick={click} className={styles.myButton} type='button'>{children}</button>
     )
 }
 export default MyButton

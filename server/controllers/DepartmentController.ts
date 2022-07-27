@@ -27,12 +27,12 @@ class DepartmentController {
 
     async addDepartment(req:Request, res:Response, next:NextFunction){
         try{
-            const {name, date, amount_employee, department_head, description} =req.body
+            const {name, date, amount_employee, department_head, description} = req.body
             if(!valid.dateValidation(date)){
                 throw new Error('invalid date')
             }
             const dateReg = moment(date).format('yyyy-MM-DD') // валидация даты в формат
-            const response = await departmentService.addDepartment(name, dateReg, amount_employee, department_head, description)
+            const response = await departmentService.addDepartment(name, dateReg, Number(amount_employee), department_head, description)
             res.json(response)
         }catch(e){
             next(e)

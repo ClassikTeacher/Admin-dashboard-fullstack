@@ -15,7 +15,7 @@
     padding: 5px;
 }
 .departmentTable__header h2{
-    font-size: 1.3em;
+    font-size: 1.3rem;
     font-weight: 600;
 }
 
@@ -24,15 +24,16 @@
     width: 95%;
     padding: 10px;
     margin: 5px 2.5% 15px 2.5%;
+    border: none;
 }
 .departmentTable table th{
     padding: 10px 5px 20px 5px;
-    font-size: 1em;
+    font-size: 1rem;
 }
 
 .departmentTable table td{
     padding: 10px 15px;
-    font-size: 0.8em;
+    font-size: 0.8rem;
 }
 
 
@@ -63,12 +64,38 @@
     text-align: start;
 }
 .departmentTable tbody tr th{
-    font-size: 1.1em;
+    font-size: 1.1rem;
     font-weight: 500;
 }
 .departmentTable table tr {
     box-shadow: 0 1px  #ddd;
 }
+.departmentTable table tr:hover td{
+    background-color: #3a7fee;
+    color: #fff;
+    cursor: pointer;
+}
+.departmentTable  table td:nth-child(1){
+    border-radius: 10px 0 0 10px ;
+    border: none;
+}
+.departmentTable table td:nth-child(5){
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
 .departmentTable table thead tr{
     box-shadow: none;
+}
+
+.deleteBtn{
+    background: none;
+}
+.deleteBtn{
+    background: none;
+}
+
+.departmentTable table tr:hover .deleteBtn{
+    background: none;
+    color: rgb(8, 44, 200);
+    cursor: pointer;
 }

@@ -1,3 +1,5 @@
+import { IEmployee } from "./IEmployee"
+
 export interface IDepartment{
     id: number
     name: string,
@@ -5,5 +7,5 @@ export interface IDepartment{
     amount_employee: number,
     department_head: string,
     description: string,
-    employee_list: [Object]
+    employee_list: [IEmployee]
 }

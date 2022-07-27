@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { IDepartment } from './models/IDepartment';
 import { IEmployee } from './models/IEmployee';
 import './styles/App.css';
@@ -8,15 +8,21 @@ import Sidebar from './components/Sidebar';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './components/AppRouter'
 import {toolkitSlice} from './store/toolkitSlice'
-import {useDispatch, useSelector} from 'react-redux'
 import {useAppDispatch, useAppSelector} from './store/redux'
+import MyModal from './components/UI/modal/MyModal';
+import MyButton from './components/UI/MyButton/MyButton';
+import FormDepartment from './components/UI/FormDepartment/FormDepartment';
+import Department from './pages/Department';
+import FromEmployee from './components/UI/FormEmployee/FromEmployee';
  
 function App() {
   const [departments, setDepartments] = useState<IDepartment[]>([])
   const [employees, setEmployees] = useState<IEmployee[]>([])
-  const {fetchDepartment} = toolkitSlice.actions
+  const [formElement, setFormElement] = useState<ReactElement | ReactElement[]>(<div></div>)
+  const reducersSlice = toolkitSlice.actions
   const dispatch = useAppDispatch()
-  const dep = useAppSelector(state => state.toolkitReduser)
+  const reduxStore = useAppSelector(state => state.toolkitReduser)
+  
   
 
   async function fetchData(){
@@ -24,26 +30,48 @@ function App() {
     const responseEmployee = await AdmindashboardService.fetchEmployees()
     setDepartments(responseDepartment.data)
     setEmployees(responseEmployee.data)
-     dispatch(fetchDepartment(responseDepartment.data))
+  
+  }
+
+  function changeFormElement(){
+    
+    switch(reduxStore.modalForm){
+      case '': setFormElement(<MyButton children='sss' click={() => console.log(1)}/>) 
+      break
+      case 'department': setFormElement(<FormDepartment/>)
+      break
+      case 'employee': setFormElement(<FromEmployee/>)
+      break
+      default: setFormElement(<MyButton children='ssasdfasdfs' click={() => console.log(1)}/>)
+      break
+    }
   }
 
   useEffect(() => {
+    changeFormElement()
+  },[reduxStore.modalForm])
+
+  useEffect(() => {
     fetchData()
-   
-    
   },[])
-  console.log(dep)
+
+  useEffect(()=>{
+    dispatch(reducersSlice.fetchDepartment(departments))
+    dispatch(reducersSlice.fetchEmployees(employees))
+  },[departments, employees])
+  
   
   return (
     <BrowserRouter>
     <div className="App">
-     
       <Sidebar />
       <div className='content-container'>
         <Navbar />
         <AppRouter />
+        <MyModal>
+          {formElement}
+        </MyModal>
       </div>
-       
     </div>
     </BrowserRouter>
   );

@@ -39,7 +39,7 @@ class EmployeeController {
                 throw new Error('already have a head of department')
             }
             const dateReg = moment(date).format('yyyy-MM-DD')
-            const response = await employeeService.addEmployee(first_name, last_name, dateReg, company, position, department, department_head, id_department)
+            const response = await employeeService.addEmployee(first_name, last_name, dateReg, company, position, department, department_head, Number(id_department))
             res.json(response)
         }catch(e){
             console.log(e)

@@ -19,8 +19,8 @@ const AppRouter = ()=>{
                 />
                 <Route
                 element={<Department/>}
-                path={'/department'}
-                key={'/department'}
+                path={'/department/:id'}
+                key={'/department/:id'}
                 />
                 <Route
                 element={<Departments/>}
@@ -29,8 +29,8 @@ const AppRouter = ()=>{
                 />
                 <Route
                 element={<Employee/>}
-                path={'/employee'}
-                key={'/employee'}
+                path={'/employee/:id'}
+                key={'/employee/:id'}
                 />
                 <Route
                 element={<Employees/>}

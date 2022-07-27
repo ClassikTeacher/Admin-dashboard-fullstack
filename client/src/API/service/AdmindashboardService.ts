@@ -14,35 +14,41 @@ export default class AdmindashboardService{
          return employee
     }
 
-    static async getDepartment(id:number):Promise<AxiosResponse<IDepartment>>{
-        const department = await api.get<IDepartment>('/department/'+{id})
+    static async getDepartment(id:string):Promise<AxiosResponse<IDepartment>>{
+        if(id === '0'){
+            throw new Error('invalid department')
+        }
+        const department = await api.get<IDepartment>('/department/'+id)
         return department  
     }
 
-    static async createDepartment(id: number, name: string, date: Date, amount_employee: number,
+    static async createDepartment( name: string, date: string, amount_employee: number,
          department_head: string, description: string):Promise<AxiosResponse<IDepartment>>{
-        const department = await api.post<IDepartment>('/department', {id, name, date, amount_employee, department_head, description})
+        const department = await api.post<IDepartment>('/department', {name, date, amount_employee, department_head, description})
         return department
     }
 
-    static async deleteDepartment(id:number):Promise<AxiosResponse<IDepartment>>{
+    static async deleteDepartment(id:string):Promise<AxiosResponse<IDepartment>>{
         const department = await api.delete<IDepartment>('/department/'+{id})
         return department    
     }
 
-    static async getEmployee(id:number):Promise<AxiosResponse<IEmployee>>{
-        const employee = await api.get<IEmployee>('/employee/'+{id})
+    static async getEmployee(id:string):Promise<AxiosResponse<IEmployee>>{
+        if(id === '0'){
+            throw new Error('invalid department')
+        }
+        const employee = await api.get<IEmployee>('/employee/'+id)
         return employee     
     }
 
-    static async createEmployee(id: number, first_name: string, last_name: string, company: string, department: string, 
-        position: string, date: Date, department_head: boolean, id_department: number):Promise<AxiosResponse<IEmployee>>{
-        const employee = await api.post<IEmployee>('/employee', {id, first_name, last_name, company, 
+    static async createEmployee(first_name: string, last_name: string, company: string, department: string, 
+        position: string, date: string, department_head: boolean, id_department: number):Promise<AxiosResponse<IEmployee>>{
+        const employee = await api.post<IEmployee>('/employee', {first_name, last_name, company, 
             department, position, date, department_head, id_department})
         return employee
     }
 
-    static async deleteEmployee(id:number):Promise<AxiosResponse<IEmployee>>{
+    static async deleteEmployee(id:string):Promise<AxiosResponse<IEmployee>>{
         const employee = await api.delete<IEmployee>('/employee/'+{id})
         return employee 
     }

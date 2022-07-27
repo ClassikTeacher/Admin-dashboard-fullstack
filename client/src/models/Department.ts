@@ -2,13 +2,13 @@
 export class Department{
     id: number
     name: string
-    date: Date
+    date: string
     amount_employee: number
     department_head: string
     description:string
 
-    constructor(id: number, name: string, date: Date, amount_employee: number, department_head: string, description:string){
-        this.id = id
+    constructor(name: string, date: string, amount_employee: number, department_head: string, description:string){
+        this.id = Math.random()
         this.name = name
         this.date = date
         this.amount_employee = amount_employee
@@ -16,6 +16,8 @@ export class Department{
         this.description = description
     }
 
-    
+    initNewForm(){
+       return new Department('', '', 0, '', '')
+    }
 
 }
