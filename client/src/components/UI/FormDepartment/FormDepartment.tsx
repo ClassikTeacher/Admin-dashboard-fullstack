@@ -17,7 +17,7 @@ const FormDepartment = ()=>{
     const[descriptionInput, setDescriptionInput] = useState<string>('')
     const statesRedux = useAppSelector(state => state.toolkitReduser)
     const dispatch = useAppDispatch()
-    const reduxSlise = toolkitSlice.actions
+    const reduxActions = toolkitSlice.actions
 
     useEffect(() => {
         setNameInput('')
@@ -30,7 +30,8 @@ const FormDepartment = ()=>{
     async function click(){
         const response = await AdmindashboardService.createDepartment(nameInput, dateInput, amountEmployeeInput, departmentHeadInput, descriptionInput)
         if (response){
-            dispatch(reduxSlise.addDepartment(response.data))
+            dispatch(reduxActions.addDepartment(response.data))
+            dispatch(reduxActions.switchvisibleModal(false))
         }
         console.log(response)
     }

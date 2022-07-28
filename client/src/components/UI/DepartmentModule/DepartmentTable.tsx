@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, ReactElement } from 'react'
+import React, { ChangeEvent, FC, ReactElement, useState } from 'react'
 import MyButton from '../MyButton/MyButton'
 import styles from './DepartmentTable.module.css'
 import {IDepartment} from '../../../models/IDepartment'
@@ -7,6 +7,7 @@ import { click } from '@testing-library/user-event/dist/click'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../../store/redux'
 import {toolkitSlice} from '../../../store/toolkitSlice'
+import AdmindashboardService from '../../../API/service/AdmindashboardService'
 
 interface DepartmentTableProps{
     departments: IDepartment[]
@@ -25,13 +26,23 @@ const DepartmentTable: FC<DepartmentTableProps> = ({departments, title})=>{
 
     function createDepartment(){
         dispatch(reducersSlice.selectionFormModal('department'))
-        console.log(statesRedux.modalForm)
         dispatch(reducersSlice.switchvisibleModal(true))
     }
 
-    function deleteDepartment(e: any){
+    async function deleteDepartment(e: any){
         e.stopPropagation()
-        console.log(e)
+        console.log(e.target.id)
+        
+        const response = await AdmindashboardService.deleteDepartment(e.target.id)
+        if(response){
+            
+            const newDepartments = [...departments.filter(item => item.id !== e.target.id)]
+            dispatch(reducersSlice.fetchDepartment(newDepartments))
+           
+            console.log(response)
+        }else {
+            new Error('error delete Departmnet')
+        }
     }
     
     return(
@@ -71,7 +82,10 @@ const DepartmentTable: FC<DepartmentTableProps> = ({departments, title})=>{
                         <td>{item.department_head}</td>
                         <td>{item.amount_employee}</td>
                         <td>{item.description}</td>
-                         <td  onClick={e => deleteDepartment(e)} className={styles.deleteBtn}>delete</td>
+                         {title === 'Departments' 
+                        ? <td id={String(item.id)} onClick={e => deleteDepartment(e)} className={styles.deleteBtn}>delete</td>
+                        : ''
+                        }
                         </tr>
                        
                     )}

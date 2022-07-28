@@ -48,6 +48,7 @@ class DepartmentService {
     }
 
     async deleteDepartment(id: number){
+        
         const employee = await prisma.employee.deleteMany({
             where:{
                 id_department: id

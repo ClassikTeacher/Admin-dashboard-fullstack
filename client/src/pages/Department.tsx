@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import AdmindashboardService from '../API/service/AdmindashboardService'
 import { IDepartment } from '../models/IDepartment'
 import moment from 'moment'
+import styles from './Department.module.css'
 import MyButton from '../components/UI/MyButton/MyButton'
 import { useAppDispatch, useAppSelector } from '../store/redux'
 import { toolkitSlice } from '../store/toolkitSlice'
@@ -13,7 +14,7 @@ const Department= ()=>{
     const params = useParams()
     const dispatch = useAppDispatch()
     const reducersSlice = toolkitSlice.actions
-    const statesRedux = useAppSelector(state => state.toolkitReduser)
+    const stateRedux = useAppSelector(state => state.toolkitReduser)
     const[deparnemt, setDepartment] = useState<IDepartment>()
     const id: string =  params.id == undefined ? '0' : params.id
 
@@ -26,11 +27,21 @@ const Department= ()=>{
        const depart = await AdmindashboardService.getDepartment(id)
        setDepartment(depart.data)
     }
+
+    async function deleteEmployee(e:any){
+
+        const response = await AdmindashboardService.deleteEmployee(e.target.id)
+        if(response){
+            getDepartment()
+        }else {
+            new Error('error delete employee')
+        }
+    }
     
     useEffect(() => {
         getDepartment() 
 
-    },[])
+    },[stateRedux.employees])
 
     return(
         <div className='dashboard'>
@@ -53,9 +64,9 @@ const Department= ()=>{
                     <p>{deparnemt?.department_head}</p>
                 </div>
             </div>
-            <div className='employeesDepartment'>
-                <div className='employeesDepartment__header'><h2> Employee </h2> 
-                <MyButton children='add employye' click={callModal}/>
+            <div className={styles.employeesDepartment}>
+                <div className={styles.employeesDepartment__header}><h2> Employee </h2> 
+                <MyButton children={'add employye'} click={callModal}/>
                 </div>
                 <table>
                     <thead>
@@ -89,6 +100,7 @@ const Department= ()=>{
                                 <td>
                                     {moment(item.date).format('yyyy-mm-DD')}
                                 </td>
+                                <td id={String(item.id)} onClick={e => deleteEmployee(e)} className={styles.deleteBtn}>delete</td>
                             </tr>
                         )}
                     </tbody>

@@ -39,6 +39,8 @@ export const toolkitSlice = createSlice({
         addEmployee(state, action: PayloadAction<IEmployee>){
             state.employees.push(action.payload)
         }
+        
+
     }
 
 })

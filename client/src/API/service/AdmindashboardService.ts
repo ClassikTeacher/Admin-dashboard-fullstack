@@ -29,13 +29,14 @@ export default class AdmindashboardService{
     }
 
     static async deleteDepartment(id:string):Promise<AxiosResponse<IDepartment>>{
-        const department = await api.delete<IDepartment>('/department/'+{id})
+        console.log(id)
+        const department = await api.delete<IDepartment>('/department/'+id)
         return department    
     }
 
     static async getEmployee(id:string):Promise<AxiosResponse<IEmployee>>{
         if(id === '0'){
-            throw new Error('invalid department')
+            throw new Error('invalid Employee')
         }
         const employee = await api.get<IEmployee>('/employee/'+id)
         return employee     
@@ -49,8 +50,16 @@ export default class AdmindashboardService{
     }
 
     static async deleteEmployee(id:string):Promise<AxiosResponse<IEmployee>>{
-        const employee = await api.delete<IEmployee>('/employee/'+{id})
-        return employee 
+        // const options = await api.options('/employee/'+{id})
+        // console.log(options)
+        // if(options.status == 204){
+           
+             
+        // }
+        const employee = await api.delete<IEmployee>('/employee/'+id)
+        return employee
+        
+        
     }
 
 

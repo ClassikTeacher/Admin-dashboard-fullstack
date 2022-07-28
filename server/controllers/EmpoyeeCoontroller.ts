@@ -50,7 +50,7 @@ class EmployeeController {
     async deleteEmployee(req:Request, res:Response, next:NextFunction){
         try{
             const {id} = req.params
-            const response = await employeeService.deleteEmployee(Number(id))
+             const response = await employeeService.deleteEmployee(Number(id))
             res.json(response)
         }catch(e){
             console.log(e)

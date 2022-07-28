@@ -20,21 +20,29 @@ const FromEmployee = ()=>{
         const [position, setPosition] = useState<string>('')
         const [date, setDate] = useState<string>('')
         const [deparnemtHead, setDepartmentHead] = useState<number>(0)
-        // const [departmentId, setDepartmentid] = useState<number>(0)
         const dispatch = useAppDispatch()
         const reduxActions = toolkitSlice.actions
         const reduxStore = useAppSelector(state => state.toolkitReduser)
         const options:IOptions[] = reduxStore.departments.map( item=>  {return {value: item.name, name: item.name}})
 
         async function click(){
-            const departmentId = reduxStore.departments.filter( item=>  item.name == department)
-            
+            const departmentId = reduxStore.departments.filter( item=>  item.name == department) 
             const response = await AdmindashboardService.createEmployee(firstName, lastName, company, department, position, date, !(deparnemtHead == 0), departmentId[0].id)
             if (response){
                 dispatch(reduxActions.addEmployee(response.data))
+                dispatch(reduxActions.switchvisibleModal(false))
             }
-            console.log(departmentId[0].id)
+            console.log(response)
         }
+
+        useEffect(() => {
+            setFirstName('')
+            setLastName('')
+            setDepartmentHead(0)
+            setCompany('')
+            setDepartment('')
+            setPosition('')
+        },[reduxStore.visibleModal])
 
         return(
         <div>

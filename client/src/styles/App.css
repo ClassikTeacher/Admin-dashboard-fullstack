@@ -154,7 +154,7 @@ body{
   position: relative;
   margin: auto;
   min-width: 400px;
-  height: 30px;
+  min-height: 30px;
   border-radius: 20px;
   padding: 5px 10px;
   border: 1px solid #222;

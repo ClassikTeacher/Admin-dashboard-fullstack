@@ -1,0 +1,46 @@
+.employeesDepartment{
+    background: #fff;
+    min-width: 60%;
+    margin: 1% 2% 1% 2%;
+    border-radius: 25px;
+    padding: 5px 10px;
+  }
+
+.employeesDepartment__header{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.employeesDepartment table{
+    border-spacing:0;
+    width: 95%;
+    padding: 10px;
+    margin: 5px 2.5% 15px 2.5%;
+    border: none;
+}
+.input{
+    width: 30%;
+    border-radius: 30px;
+    min-height: 30px;
+    padding: 3px 10px 3px 15px;
+    border: 1px solid #222;
+    outline: none;
+}
+
+.employeesDepartment table th{
+    padding: 10px 5px 20px 5px;
+    text-align: left;
+    font-size: 1rem;
+}
+.employeesDepartment table td{
+    padding: 5px 0;
+}
+.deleteBtn{
+    cursor: pointer;
+}
+.deleteBtn:hover {
+    background: none;
+    color: rgb(8, 44, 200);
+    cursor: pointer;
+}
