@@ -1,101 +1,97 @@
-.departmentTable{
-    width: 100%;
-    background: #fff;
-    margin: 1% 2%;
-    border-radius: 25px; 
-    font-weight: 500;
-    font-size: 1em;
-    padding: 10px 20px;
-    
+.departmentTable {
+  width: 100%;
+  background: #fff;
+  margin: 1% 2%;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 1em;
+  padding: 10px 20px;
 }
 
-.departmentTable__header{
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
+.departmentTable__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }
-.departmentTable__header h2{
-    font-size: 1.3rem;
-    font-weight: 600;
-}
-
-.departmentTable table{
-    border-spacing:0;
-    width: 95%;
-    padding: 10px;
-    margin: 5px 2.5% 15px 2.5%;
-    border: none;
-}
-.departmentTable table th{
-    padding: 10px 5px 20px 5px;
-    font-size: 1rem;
+.departmentTable__header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
-.departmentTable table td{
-    padding: 10px 15px;
-    font-size: 0.8rem;
+.departmentTable table {
+  border-spacing: 0;
+  width: 95%;
+  padding: 10px;
+  margin: 5px 2.5% 15px 2.5%;
+  border: none;
+}
+.departmentTable table th {
+  padding: 10px 5px 20px 5px;
+  font-size: 1rem;
 }
 
-
-
-.departmentTable tbody tr td:nth-child(1){
-    text-align: start;
-    width: 20%;
-    
+.departmentTable table td {
+  padding: 10px 15px;
+  font-size: 0.8rem;
 }
 
-.departmentTable tbody tr td:nth-child(2){
-    width: 15%;
-    text-align: center;
+.departmentTable tbody tr td:nth-child(1) {
+  text-align: start;
+  width: 20%;
 }
 
-.departmentTable tbody tr td:nth-child(3){
-    width: 17.5%;
-    text-align: start;
+.departmentTable tbody tr td:nth-child(2) {
+  width: 15%;
+  text-align: center;
 }
 
-.departmentTable tbody tr td:nth-child(4){
-    width: 15%;
-    text-align: center;
+.departmentTable tbody tr td:nth-child(3) {
+  width: 17.5%;
+  text-align: start;
 }
 
-.departmentTable tbody tr td:nth-child(5){
-    width: 32.5%;
-    text-align: start;
+.departmentTable tbody tr td:nth-child(4) {
+  width: 15%;
+  text-align: center;
 }
-.departmentTable tbody tr th{
-    font-size: 1.1rem;
-    font-weight: 500;
+
+.departmentTable tbody tr td:nth-child(5) {
+  width: 32.5%;
+  text-align: start;
+}
+.departmentTable tbody tr th {
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 .departmentTable table tr {
-    box-shadow: 0 1px  #ddd;
+  box-shadow: 0 1px #ddd;
 }
-.departmentTable table tr:hover td{
-    background-color: #3a7fee;
-    color: #fff;
-    cursor: pointer;
+.departmentTable table tr:hover td {
+  background-color: #3a7fee;
+  color: #fff;
+  cursor: pointer;
 }
-.departmentTable  table td:nth-child(1){
-    border-radius: 10px 0 0 10px ;
-    border: none;
+.departmentTable table td:nth-child(1) {
+  border-radius: 10px 0 0 10px;
+  border: none;
 }
-.departmentTable table td:nth-child(5){
-    border-radius: 0 10px 10px 0;
-    border: none;
+.departmentTable table td:nth-child(5) {
+  border-radius: 0 10px 10px 0;
+  border: none;
 }
-.departmentTable table thead tr{
-    box-shadow: none;
-}
-
-.deleteBtn{
-    background: none;
-}
-.deleteBtn{
-    background: none;
+.departmentTable table thead tr {
+  box-shadow: none;
 }
 
-.departmentTable table tr:hover .deleteBtn{
-    background: none;
-    color: rgb(8, 44, 200);
-    cursor: pointer;
+.deleteBtn {
+  background: none;
+}
+.deleteBtn {
+  background: none;
+}
+
+.departmentTable table tr:hover .deleteBtn {
+  background: none;
+  color: rgb(8, 44, 200);
+  cursor: pointer;
 }

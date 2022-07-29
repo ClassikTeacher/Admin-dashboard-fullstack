@@ -1,38 +1,38 @@
-.employeesDepartment{
-    background: #fff;
-    min-width: 60%;
-    margin: 1% 2% 1% 2%;
-    border-radius: 25px;
-    padding: 5px 10px;
-  }
-
-.employeesDepartment__header{
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
+.employeesDepartment {
+  background: #fff;
+  min-width: 60%;
+  margin: 1% 2% 1% 2%;
+  border-radius: 25px;
+  padding: 5px 10px;
 }
 
-.employeesDepartment table{
-    border-spacing:0;
-    width: 95%;
-    padding: 10px;
-    margin: 5px 2.5% 15px 2.5%;
-    border: none;
+.employeesDepartment__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }
 
-.employeesDepartment table th{
-    padding: 10px 5px 20px 5px;
-    text-align: left;
-    font-size: 1rem;
+.employeesDepartment table {
+  border-spacing: 0;
+  width: 95%;
+  padding: 10px;
+  margin: 5px 2.5% 15px 2.5%;
+  border: none;
 }
-.employeesDepartment table td{
-    padding: 5px 0;
+
+.employeesDepartment table th {
+  padding: 10px 5px 20px 5px;
+  text-align: left;
+  font-size: 1rem;
 }
-.deleteBtn{
-    cursor: pointer;
+.employeesDepartment table td {
+  padding: 5px 0;
+}
+.deleteBtn {
+  cursor: pointer;
 }
 .deleteBtn:hover {
-    background: none;
-    color: rgb(8, 44, 200);
-    cursor: pointer;
+  background: none;
+  color: rgb(8, 44, 200);
+  cursor: pointer;
 }

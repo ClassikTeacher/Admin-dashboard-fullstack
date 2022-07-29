@@ -1,26 +1,26 @@
-.modal{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
 }
-.modalForm{
-    margin: auto;
-    background: #fff;
-    border-radius: 15px;
-    padding: 10px 15px;
-    width: 600px;
-    min-height: 80px;
+.modalForm {
+  margin: auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 10px 15px;
+  width: 600px;
+  min-height: 80px;
 }
 
-.modal.active{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

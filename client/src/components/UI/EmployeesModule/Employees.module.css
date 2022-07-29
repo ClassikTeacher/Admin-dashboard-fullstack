@@ -1,57 +1,56 @@
-.EmployeesBlock{
-    background: #fff;
-    min-width: 20%;
-    margin: 1% 2% 1% 4%;
-    border-radius: 25px;
-    padding: 5px 10px;
+.EmployeesBlock {
+  background: #fff;
+  min-width: 20%;
+  margin: 1% 2% 1% 4%;
+  border-radius: 25px;
+  padding: 5px 10px;
 }
 
-.EmployeesBlock ul{
-list-style: none;
-max-width: 100%;
-margin: 5px 10px 15px 0px;
+.EmployeesBlock ul {
+  list-style: none;
+  max-width: 100%;
+  margin: 5px 10px 15px 0px;
 }
 
 .EmployeesBlock ul li {
-    display: flex;
-    position: relative;
-    margin-bottom: 15px;
-    padding-left: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+  display: flex;
+  position: relative;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-.EmployeesBlock ul li:hover{
-    background-color: #3a7fee;
-    color: #fff;
-}
-
-.photo{
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-    padding-top: 5px;
-    border-radius: 50%;
+.EmployeesBlock ul li:hover {
+  background-color: #3a7fee;
+  color: #fff;
 }
 
-.info h4{
-    font-size: 16px;
-   font-weight: 600;
+.photo {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  padding-top: 5px;
+  border-radius: 50%;
 }
 
-.info p{
-    font-size: 12px;
-    font-weight: 400;
-    color: #aaa;
+.info h4 {
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.position{
-    display: flex;
-    position: absolute;
-    font-size: 13px;
-    font-weight: 500;
-    align-items: center;
-    margin-left: 20px;
-    top: 25%;
-    right: 10px;
-    
+.info p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #aaa;
+}
+
+.position {
+  display: flex;
+  position: absolute;
+  font-size: 13px;
+  font-weight: 500;
+  align-items: center;
+  margin-left: 20px;
+  top: 25%;
+  right: 10px;
 }

@@ -1,7 +1,6 @@
-
-export interface AuthResponse{
-    accessToken: string,
-    refreshToken: string,
-    login: string,
-    password: string
+export interface AuthResponse {
+  accessToken: string;
+  refreshToken: string;
+  login: string;
+  password: string;
 }

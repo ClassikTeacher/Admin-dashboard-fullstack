@@ -1,0 +1,21 @@
+.employeeInfo {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  min-width: 20%;
+  margin: 1% 2% 1% 2%;
+  border-radius: 25px;
+  padding: 5px 10px;
+}
+
+.employeeInfo h2 {
+  margin: 10px;
+}
+
+.employeeInfo__item {
+  padding: 5px;
+}
+
+.employeeInfo div p {
+  padding-left: 5px;
+}

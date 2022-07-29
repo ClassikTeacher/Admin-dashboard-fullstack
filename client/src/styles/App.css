@@ -1,22 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-:root{
+:root {
   --blue: #3a7fee;
-  --white:#fff;
-  --grey:#ece9e9;
-  --black:#222;
-  --darkgray:#929292;
+  --white: #fff;
+  --grey: #ece9e9;
+  --black: #222;
+  --darkgray: #929292;
   --transition: all 0.3s linear;
 }
-body{
+body {
   min-height: 100%;
   overflow-x: hidden;
   background-color: var(--grey);
@@ -27,7 +26,7 @@ body{
   min-height: 100%;
 }
 
-.sidebar{
+.sidebar {
   position: fixed;
   width: 18%;
   height: 100%;
@@ -37,39 +36,39 @@ body{
   overflow: hidden;
 }
 
-.sidebar ul{
+.sidebar ul {
   width: 100%;
   position: absolute;
   left: 0;
   top: 0;
 }
 
-.sidebar ul li{
+.sidebar ul li {
   position: relative;
   list-style: none;
   padding: 5px 0 5px 10px;
   width: 100%;
 }
 
-.sidebar ul li:nth-child(1){
+.sidebar ul li:nth-child(1) {
   padding-bottom: 60px;
   pointer-events: none;
   display: flex;
 }
 
-.sidebar .close-btn{
+.sidebar .close-btn {
   position: fixed;
-  
+
   display: none;
   background: none;
   font-size: 1.5em;
   color: var(--black);
   border: none;
   cursor: pointer;
-  pointer-events:all;
+  pointer-events: all;
 }
 
-.sidebar ul li a{
+.sidebar ul li a {
   position: relative;
   display: block;
   width: 100%;
@@ -81,20 +80,20 @@ body{
   white-space: normal;
 }
 
-.sidebar ul li:hover a{
-  color:#17FCAC;
+.sidebar ul li:hover a {
+  color: #17fcac;
 }
 
-.sidebar ul li.active{
+.sidebar ul li.active {
   background: var(--grey);
   border-radius: 20px 0 0 20px;
 }
 
-.sidebar ul li.active a{
-  color:var(--blue);
+.sidebar ul li.active a {
+  color: var(--blue);
 }
-.sidebar ul li.active a::before{
-  content: '';
+.sidebar ul li.active a::before {
+  content: "";
   position: absolute;
   right: 0;
   top: -55px;
@@ -104,10 +103,10 @@ body{
   background: transparent;
   box-shadow: 35px 35px 0 10px var(--grey);
   pointer-events: none;
-}  
+}
 
-.sidebar ul li.active a::after{
-  content: '';
+.sidebar ul li.active a::after {
+  content: "";
   position: absolute;
   right: 0;
   bottom: -55px;
@@ -117,11 +116,9 @@ body{
   border-radius: 50%;
   box-shadow: 35px -35px 0 10px var(--grey);
   pointer-events: none;
-}  
+}
 
-
-
-.content-container{
+.content-container {
   position: relative;
   left: 18%;
   max-width: 82%;
@@ -130,16 +127,15 @@ body{
   background: var(--grey);
 }
 
-
-.navbar{
+.navbar {
   display: flex;
   min-height: 8%;
   width: 100%;
   background: var(--gray);
-  transition:0.5s;
+  transition: 0.5s;
 }
 
-.navbar .btn-sidebar{
+.navbar .btn-sidebar {
   position: relative;
   margin: 10px 0 0 2%;
   font-size: 1em;
@@ -150,7 +146,7 @@ body{
   transition: 0.5s;
 }
 
-.navbar .search{
+.navbar .search {
   position: relative;
   margin: auto;
   min-width: 400px;
@@ -161,7 +157,7 @@ body{
   outline: none;
 }
 
-.navbar .img-avatar{
+.navbar .img-avatar {
   width: 50px;
   height: 50px;
   font-size: 0.7em;
@@ -169,7 +165,7 @@ body{
   margin: 10px 2% 0 0;
 }
 
-.dashboard{
+.dashboard {
   display: flex;
   position: relative;
   min-width: 100%;
@@ -177,11 +173,11 @@ body{
   display: flex;
 }
 
-.departments-wrapper{
+.departments-wrapper {
   width: 75%;
 }
 
-.department-info{
+.department-info {
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -191,19 +187,19 @@ body{
   padding: 5px 10px;
 }
 
-.department-info h2{
+.department-info h2 {
   margin: 10px;
 }
 
-.department-info div{
+.department-info div {
   padding: 5px;
 }
 
-.department-info div p{
+.department-info div p {
   padding-left: 5px;
 }
 
-.employeesDepartment{
+.employeesDepartment {
   background: #fff;
   min-width: 60%;
   margin: 1% 2% 1% 2%;
@@ -211,21 +207,21 @@ body{
   padding: 5px 10px;
 }
 
-.employeesDepartment__header{
+.employeesDepartment__header {
   display: flex;
   justify-content: space-between;
   padding: 5px;
 }
 
-.employeesDepartment table{
-  border-spacing:0;
+.employeesDepartment table {
+  border-spacing: 0;
   width: 95%;
   padding: 10px;
   margin: 5px 2.5% 15px 2.5%;
   border: none;
 }
 
-.employeesDepartment table th{
+.employeesDepartment table th {
   padding: 10px 5px 20px 5px;
   text-align: left;
   font-size: 1rem;

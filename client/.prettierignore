@@ -1,0 +1,6 @@
+build
+coverage
+.eslintrc.cjs
+
+# Ignore all HTML files:
+*.html
