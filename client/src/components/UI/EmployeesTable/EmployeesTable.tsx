@@ -4,12 +4,12 @@ import moment from "moment";
 import styles from "./EmployeesTable.module.css";
 
 interface EmployyesTableProps {
-  filterEmployeeByName: IEmployee[] | undefined;
+  Employees: IEmployee[] | undefined;
   funcDelete: (id: string) => Promise<void>;
 }
 
 const EmployeesTable: FC<EmployyesTableProps> = ({
-  filterEmployeeByName,
+    Employees,
   funcDelete,
 }) => {
   function deleteEmployee(e: any) {
@@ -27,7 +27,7 @@ const EmployeesTable: FC<EmployyesTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {filterEmployeeByName?.map((item) => (
+          {Employees?.map((item) => (
             <tr key={item.id}>
               <td>{item.first_name}</td>
               <td>{item.last_name}</td>

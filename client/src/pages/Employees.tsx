@@ -62,7 +62,7 @@ const Empoyees = () => {
         <MyButton children={"add employye"} click={callModal} />
       </div>
       <EmployeesTable
-        filterEmployeeByName={filterEmployeeByName}
+        Employees={filterEmployeeByName}
         funcDelete={deleteEmployee}
       />
     </div>

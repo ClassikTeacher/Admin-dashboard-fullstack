@@ -2,18 +2,19 @@ import React, { ReactElement, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AdmindashboardService from "../API/service/AdmindashboardService";
 import { IDepartment } from "../models/IDepartment";
-import moment from "moment";
 import styles from "./Department.module.css";
 import MyButton from "../components/UI/MyButton/MyButton";
 import { useAppDispatch, useAppSelector } from "../store/redux";
 import { toolkitSlice } from "../store/toolkitSlice";
+import EmployeesTable from "../components/UI/EmployeesTable/EmployeesTable";
+import DepartmentInfo from "../components/UI/DepartmentInfo/DepartmentInfo";
 
 const Department = () => {
   const params = useParams();
   const dispatch = useAppDispatch();
   const reducersSlice = toolkitSlice.actions;
   const stateRedux = useAppSelector((state) => state.toolkitReduser);
-  const [deparnemt, setDepartment] = useState<IDepartment>();
+  const [department, setDepartment] = useState<IDepartment>();
   const id: string = params.id == undefined ? "0" : params.id;
 
   function callModal() {
@@ -41,57 +42,19 @@ const Department = () => {
 
   return (
     <div className="dashboard">
-      <div className="department-info">
-        <h2>Department</h2>
-        <div className="department-info__item">
-          <h4>Name</h4>
-          <p>{deparnemt?.name}</p>
-        </div>
-        <div className="department-info__item">
-          <h4>Date</h4>
-          <p>{moment(deparnemt?.date).format("yyyy-mm-DD")}</p>
-        </div>
-        <div className="department-info__item">
-          <h4>Description</h4>
-          <p>{deparnemt?.description}</p>
-        </div>
-        <div className="department-info__item">
-          <h4>Departmnet head</h4>
-          <p>{deparnemt?.department_head}</p>
-        </div>
-      </div>
+      <DepartmentInfo
+        department={department}
+      />
       <div className={styles.employeesDepartment}>
         <div className={styles.employeesDepartment__header}>
           <h2> Employee </h2>
           <MyButton children={"add employye"} click={callModal} />
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>firstname</th>
-              <th>last name</th>
-              <th>position</th>
-              <th>date added</th>
-            </tr>
-          </thead>
-          <tbody>
-            {deparnemt?.employee_list.map((item) => (
-              <tr key={item.id}>
-                <td>{item.first_name}</td>
-                <td>{item.last_name}</td>
-                <td>{item.position}</td>
-                <td>{moment(item.date).format("yyyy-mm-DD")}</td>
-                <td
-                  id={String(item.id)}
-                  onClick={(e) => deleteEmployee(e)}
-                  className={styles.deleteBtn}
-                >
-                  delete
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <EmployeesTable
+        Employees={department?.employee_list}
+        funcDelete={deleteEmployee}
+        />
+       
       </div>
     </div>
   );
