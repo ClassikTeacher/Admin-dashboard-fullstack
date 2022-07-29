@@ -1,3 +1,4 @@
+
 const Router = require('express')
 const departmentController = require('../controllers/DepartmentController')
 const employeeController = require('../controllers/EmpoyeeCoontroller')
@@ -32,5 +33,7 @@ router.post('/logout', adminController.logout)
 router.get('/refresh', adminController.refresh)
 router.get('/adminpage', authMiddleware, adminController.getAdminPage)
 
+
 module.exports = router
+
 export{}
