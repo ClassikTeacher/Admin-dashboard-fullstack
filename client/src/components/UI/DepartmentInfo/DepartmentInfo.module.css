@@ -1,0 +1,21 @@
+.departmentInfo {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    min-width: 20%;
+    margin: 1% 2% 1% 2%;
+    border-radius: 25px;
+    padding: 5px 10px;
+  }
+  
+  .departmentInfo h2 {
+    margin: 10px;
+  }
+  
+  .departmentInfo__item {
+    padding: 5px;
+  }
+  
+  .departmentInfo div p {
+    padding-left: 5px;
+  }
