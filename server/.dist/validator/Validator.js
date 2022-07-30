@@ -1,76 +1,46 @@
 "use strict";
-var __awaiter =
-  (this && this.__awaiter) ||
-  function (thisArg, _arguments, P, generator) {
-    function adopt(value) {
-      return value instanceof P
-        ? value
-        : new P(function (resolve) {
-            resolve(value);
-          });
-    }
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
-      function fulfilled(value) {
-        try {
-          step(generator.next(value));
-        } catch (e) {
-          reject(e);
-        }
-      }
-      function rejected(value) {
-        try {
-          step(generator["throw"](value));
-        } catch (e) {
-          reject(e);
-        }
-      }
-      function step(result) {
-        result.done
-          ? resolve(result.value)
-          : adopt(result.value).then(fulfilled, rejected);
-      }
-      step((generator = generator.apply(thisArg, _arguments || [])).next());
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
-  };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 class Validation {
-  dateValidation(date) {
-    const arrDate = date.split("-");
-    const validDate = new Date(
-      Number(arrDate[0]),
-      Number(arrDate[1]) - 1,
-      Number(arrDate[2])
-    );
-    if (
-      validDate.getFullYear() === Number(arrDate[0]) &&
-      validDate.getMonth() === Number(arrDate[1]) - 1 &&
-      validDate.getDate() === Number(arrDate[2])
-    ) {
-      return true;
+    dateValidation(date) {
+        const arrDate = date.split("-");
+        const validDate = new Date(Number(arrDate[0]), Number(arrDate[1]) - 1, Number(arrDate[2]));
+        if (validDate.getFullYear() === Number(arrDate[0]) &&
+            validDate.getMonth() === Number(arrDate[1]) - 1 &&
+            validDate.getDate() === Number(arrDate[2])) {
+            return true;
+        }
+        return false;
     }
-    return false;
-  }
-  validationDepartmentHead(id) {
-    return __awaiter(this, void 0, void 0, function* () {
-      const head = yield prisma.department.findFirst({
-        where: {
-          AND: [
-            {
-              id: id,
-              employee_list: {
-                some: {
-                  department_head: true,
+    validationDepartmentHead(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const head = yield prisma.department.findFirst({
+                where: {
+                    AND: [
+                        {
+                            id: id,
+                            employee_list: {
+                                some: {
+                                    department_head: true,
+                                },
+                            },
+                        },
+                    ],
                 },
-              },
-            },
-          ],
-        },
-      });
-      return head;
-    });
-  }
+            });
+            return head;
+        });
+    }
 }
 module.exports = new Validation();
 //# sourceMappingURL=Validator.js.map

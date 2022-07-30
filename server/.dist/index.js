@@ -8,11 +8,11 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(cookieParser());
 const options = {
-  credentials: true,
-  origin: process.env.CLIENT_URL,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
+    credentials: true,
+    origin: process.env.CLIENT_URL,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
 };
 app.use(cors(options));
 app.use(express.json());
