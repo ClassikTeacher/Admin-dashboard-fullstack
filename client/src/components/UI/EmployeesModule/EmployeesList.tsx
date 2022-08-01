@@ -19,13 +19,13 @@ const EmployeesList: FC<EmployeesListProps> = ({ title, employees }) => {
   return (
     <div className={styles.EmployeesBlock}>
       <h2>{title}</h2>
-      <ul>
+      <ul className={styles.EmployeesBlockList}>
         {employees.map((item) => (
-          <li key={item.id} onClick={() => click(item)}>
+          <li className={styles.EmployeesBlockList__item} key={item.id} onClick={() => click(item)}>
             <img src={defualtAvatar} alt="" className={styles.photo} />
             <div className={styles.info}>
-              <h4>{item.first_name}</h4>
-              <p>{item.company}</p>
+              <h4 className={styles.info__firstName}>{item.first_name}</h4>
+              <p className={styles.info__company}>{item.company}</p>
             </div>
             <div className={styles.position}>{item.position}</div>
           </li>

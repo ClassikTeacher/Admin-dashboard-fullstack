@@ -6,13 +6,13 @@
   padding: 5px 10px;
 }
 
-.EmployeesBlock ul {
+.EmployeesBlockList {
   list-style: none;
   max-width: 100%;
   margin: 5px 10px 15px 0px;
 }
 
-.EmployeesBlock ul li {
+.EmployeesBlockList__item {
   display: flex;
   position: relative;
   margin-bottom: 15px;
@@ -20,7 +20,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.EmployeesBlock ul li:hover {
+.EmployeesBlockList__item:hover {
   background-color: #3a7fee;
   color: #fff;
 }
@@ -33,12 +33,12 @@
   border-radius: 50%;
 }
 
-.info h4 {
+.info__firstName {
   font-size: 16px;
   font-weight: 600;
 }
 
-.info p {
+.info__company {
   font-size: 12px;
   font-weight: 400;
   color: #aaa;

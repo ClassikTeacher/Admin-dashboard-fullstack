@@ -47,33 +47,33 @@ const DepartmentTable: FC<DepartmentTableProps> = ({ departments, title }) => {
   }
 
   return (
-    <div className={styles.departmentTable}>
-      <div className={styles.departmentTable__header}>
-        <h2>{title}</h2>
+    <div className={styles.departmentModule}>
+      <div className={styles.departmentModule__header}>
+        <h2 className={styles.departmentModule__header__title}>{title}</h2>
         {title === "Departments" ? (
           <MyButton children="All departments" click={createDepartment} />
         ) : (
           <div></div>
         )}
       </div>
-      <table>
+      <table className={styles.departmentModuleTable}>
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Date of creation</th>
-            <th>Departmnet head</th>
-            <th>Amount Employee</th>
-            <th>description</th>
+          <tr >
+            <th className={styles.departmentModuleTable_title}>Name</th>
+            <th className={styles.departmentModuleTable_title}>Date of creation</th>
+            <th className={styles.departmentModuleTable_title}>Departmnet head</th>
+            <th className={styles.departmentModuleTable_title}>Amount Employee</th>
+            <th className={styles.departmentModuleTable_title}>description</th>
           </tr>
         </thead>
         <tbody>
           {departments.map((item) => (
-            <tr key={item.id} onClick={() => click(item)}>
-              <td>{item.name}</td>
-              <td>{moment(item.date).format("yyyy-mm-DD")}</td>
-              <td>{item.department_head}</td>
-              <td>{item.amount_employee}</td>
-              <td>{item.description}</td>
+            <tr className={styles.departmentModuleTable__row} key={item.id} onClick={() => click(item)}>
+              <td className={styles.departmentModuleTable__text__name}>{item.name}</td>
+              <td  className={styles.departmentModuleTable__text__data}>{moment(item.date).format("yyyy-mm-DD")}</td>
+              <td  className={styles.departmentModuleTable__text__head}>{item.department_head}</td>
+              <td  className={styles.departmentModuleTable__text__amount}>{item.amount_employee}</td>
+              <td  className={styles.departmentModuleTable__text__description}>{item.description}</td>
               {title === "Departments" ? (
                 <td
                   id={String(item.id)}

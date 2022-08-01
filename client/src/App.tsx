@@ -12,7 +12,6 @@ import { useAppDispatch, useAppSelector } from "./store/redux";
 import MyModal from "./components/UI/modal/MyModal";
 import MyButton from "./components/UI/MyButton/MyButton";
 import FormDepartment from "./components/UI/FormDepartment/FormDepartment";
-import Department from "./pages/Department";
 import FromEmployee from "./components/UI/FormEmployee/FromEmployee";
 
 function App() {

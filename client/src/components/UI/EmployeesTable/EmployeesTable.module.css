@@ -1,4 +1,4 @@
-.employeesDepartment table {
+.employeesDepartmentTable {
   border-spacing: 0;
   width: 95%;
   padding: 10px;
@@ -6,12 +6,12 @@
   border: none;
 }
 
-.employeesDepartment table th {
+.employeesDepartmentTable__title {
   padding: 10px 5px 20px 5px;
   text-align: left;
   font-size: 1rem;
 }
-.employeesDepartment table td {
+.employeesDepartmentTable__text {
   padding: 5px 0;
 }
 .deleteBtn {

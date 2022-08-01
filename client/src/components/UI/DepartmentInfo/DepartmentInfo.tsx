@@ -11,10 +11,10 @@ interface DepartmentInfoProps{
 const DepartmentInfo: FC<DepartmentInfoProps> = ({department})=>{
     return(
         <div className={styles.departmentInfo}>
-        <h2>Department</h2>
+        <h2 className={styles.departmentInfo_title}>Department</h2>
         <div className={styles.departmentInfo__item}>
           <h4>Name</h4>
-          <p>{department?.name}</p>
+          <p className={styles.departmentInfo__text}>{department?.name}</p>
         </div>
         <div className={styles.departmentInfo__item}>
           <h4>Date</h4>

@@ -17,22 +17,22 @@ const EmployeesTable: FC<EmployyesTableProps> = ({
   }
   return (
     <div>
-      <table>
+      <table className={styles.employeesDepartmentTable}>
         <thead>
           <tr>
-            <th>firstname</th>
-            <th>last name</th>
-            <th>position</th>
-            <th>date added</th>
+            <th className={styles.employeesDepartmentTable__title}>firstname</th>
+            <th className={styles.employeesDepartmentTable__title}>last name</th>
+            <th className={styles.employeesDepartmentTable__title}>position</th>
+            <th className={styles.employeesDepartmentTable__title}>date added</th>
           </tr>
         </thead>
         <tbody>
           {Employees?.map((item) => (
             <tr key={item.id}>
-              <td>{item.first_name}</td>
-              <td>{item.last_name}</td>
-              <td>{item.position}</td>
-              <td>{moment(item.date).format("yyyy-mm-DD")}</td>
+              <td className={styles.employeesDepartmentTable__text}>{item.first_name}</td>
+              <td className={styles.employeesDepartmentTable__text}>{item.last_name}</td>
+              <td className={styles.employeesDepartmentTable__text}>{item.position}</td>
+              <td className={styles.employeesDepartmentTable__text}>{moment(item.date).format("yyyy-mm-DD")}</td>
               <td
                 id={String(item.id)}
                 onClick={(e) => deleteEmployee(e)}
